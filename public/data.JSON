@@ -1,0 +1,14 @@
+{
+  "toDos": [
+    {
+      "id": "50ddsv614v6c5dwv",
+      "task": "Create React App",
+      "completed": true
+    },
+    {
+      "id": "20mfei348c3d7wtu",
+      "task": "Install dependencies",
+      "completed": false
+    }
+  ]
+}

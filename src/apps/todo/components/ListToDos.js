@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Form, InputGroup } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { completedToggle } from "../redux/todos-slice";
 
@@ -29,32 +29,43 @@ export default function ListToDos() {
     }
   }
   return (
-    <ul>
-      {filteredtoDos && filteredtoDos.map((item) => (
-        <li key={item.id}>
-          <input
-            type="checkbox"
-            checked={item.completed}
-            onChange={() => dispatch(completedToggle(item.id))}
-          />
-          <label>{item.task}</label>
-          <Button
-            variant="outline-info"
-            onClick={() => console.log("ListToDos ul li button edit")}
+    <ul className="d-flex flex-column align-items-stretch gap-2">
+      {filteredtoDos &&
+        filteredtoDos.map((item) => (
+          <li
+            key={item.id}
+            className="d-flex align-items-center justify-content-between "
           >
-            {" "}
-            Edit{" "}
-          </Button>
-          <Button
-            variant="outline-danger"
-            onClick={() => console.log("ListToDos ul li button delete")}
-          >
-            {" "}
-            Delete{" "}
-          </Button>
-        </li>
-      ))
-      }
+            <div className="d-flex align-items-center gap-2">
+              <InputGroup>
+                <Form.Check
+                  type="checkbox"
+                  label={item.task} 
+                  checked={item.completed}
+                  onChange={() => dispatch(completedToggle(item.id))}
+                />
+              </InputGroup>
+            </div>
+            <div className="d-flex align-items-centre">
+              <Button
+                variant="outline-info"
+                className="rounded-right-0 border-end-0 py-0"
+                onClick={() => console.log("ListToDos ul li button edit")}
+              >
+                Edit{" "}
+              </Button>
+              <div className="border border-secondary"></div>
+              <Button
+                variant="outline-danger"
+                className="rounded-left-0 border-start-0 py-0"
+                onClick={() => console.log("ListToDos ul li button delete")}
+              >
+                {" "}
+                Delete{" "}
+              </Button>
+            </div>
+          </li>
+        ))}
     </ul>
   );
 }

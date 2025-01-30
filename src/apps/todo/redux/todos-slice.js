@@ -18,6 +18,12 @@ const toDosSlice = createSlice({
         return todo;
       })
     },
+    markAllComplete: (state, action)=>{
+
+    },
+    markAllIncomplete: (state, action)=>{
+
+    },
     set: (state, action)=>{ // toDos list
       state.toDos = action.payload
     },

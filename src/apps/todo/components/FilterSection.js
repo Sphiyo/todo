@@ -9,7 +9,6 @@ export default function FilterSection() {
     <select
       className="form-select"
       aria-label="Default select example"
-      defaultValue="1"
       value={filteredValue}
       onChange={(e) => dispatch(updateFilteredValue(e.target.value))}
     >
